@@ -1,11 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
 
+#window size
 root = tk.Tk()
 root.title('Registration Form')
 root.geometry('500x370')
 root.resizable(False,False)
 
+#get data info from entry and save data in entry name folder
 def enter_data():
     firstname = firstname_entry.get()
     lastname = lastname_entry.get()
@@ -31,11 +33,11 @@ def enter_data():
         f.write('Accept Terms & Conditions: ' + accept+ '\n')
 
 
-
+#frame
 frame = tk.Frame(root)
 frame.pack()
 
-
+#user info Entry
 #user info
 user_info = tk.LabelFrame(frame, text='user info')
 user_info.grid(row=0, column=0)
@@ -69,7 +71,7 @@ nationality_combo.grid(row=3, column=1)
 for widget in user_info.winfo_children():
     widget.grid(padx=10, pady=5)
 
-#register info
+#register info entry
 Register = tk.LabelFrame(frame, text='Register')
 Register.grid(row=1, column=0, sticky='news')
 
@@ -93,7 +95,7 @@ numsem_spin.grid(row=1, column=2)
 for widget in Register.winfo_children():
     widget.grid(padx=10, pady=5)
 
-#accept terms & conditions
+#accept terms & conditions entry
 accept = tk.LabelFrame(frame, text='Terms & Conditions')
 accept.grid(row=2, column=0, sticky='news', padx=20, pady=20)
 
@@ -102,6 +104,7 @@ accept_check = tk.Checkbutton(accept, text='Accept Terms & Condition', variable=
                               offvalue='not accepted')
 accept_check.grid(row=0, column=0)
 
+#button all data exicuted
 button = tk.Button(frame, text='Enter Data', command=enter_data)
 button.grid(row=3, column=0, sticky='news', padx=20, pady=20)
 

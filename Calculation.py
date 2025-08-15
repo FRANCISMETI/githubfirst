@@ -3,26 +3,28 @@ import tkinter as tk
 def add_calculation(symbol):
     pass
 
+#adding window console
 root= tk.Tk()
 root.title('Calculation')
 root.geometry('310x280')
 
 calculation = ''
 
+#buttons functions reusable code
 def add_calculation(symbol):
-    global calculation
-    calculation += str(symbol)
-    text_result.delete(1.0, 'end')
-    text_result.insert(1.0, calculation)
+    global calculation #variable assigned before function
+    calculation += str(symbol)                         # store the assigned button in text
+    text_result.delete(1.0, 'end')      # delete the index in specified list
+    text_result.insert(1.0, calculation)        #insert the index in specified list
 
 def eval_calculation():
     global calculation
-    try:
+    try:                                                       #code that might raise an exception
         result = str(eval(calculation))
         calculation = ''
         text_result.delete(1.0, 'end')
         text_result.insert(1.0, result)
-    except:
+    except:                                                 #code to handle specific
         clear()
         text_result.insert(1.0, 'Error')
 

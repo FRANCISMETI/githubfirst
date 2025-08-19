@@ -29,10 +29,10 @@ def clear_field():
     text_result.delete(1.0, 'end')
 
 def backspace():
-    global calculation
-    text1 = text_result.get(1.0, 'end -1c')
-    text_result.delete(1.0, 'end')
-    text_result.insert(1.0, text1[:-1])
+   global calculation
+   calculation = calculation[:-1]
+   text_result.delete(1.0, 'end')
+   text_result.insert(1.0, calculation)
 
 def percentage():
     global calculation
@@ -41,7 +41,7 @@ def percentage():
     text_result.delete(1.0, 'end')
     text_result.insert(1.0, calculation)
 
-text_result = tk.Text(root, width=35, height=3)
+text_result = tk.Text(root, width=35, height=3, font='arial 14 bold')
 text_result.pack(padx=10, pady=60)
 
 btnclear = tk.Button(root, text='C', command = lambda : add_calculation('C'),
